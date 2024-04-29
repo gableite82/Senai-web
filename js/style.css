@@ -70,3 +70,40 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+
+
+.container-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cadastro-veiculo {
+    background-color: #fff;
+    padding: 50px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.button-register {
+    margin-left: 25%;
+    margin-right: 25%; 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.button-register button {
+    font-size: medium;
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
