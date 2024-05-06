@@ -13,10 +13,8 @@
         <p>Total de Vagas: <span id="totalVagas">35</span></p>
         <p>Vagas Ocupadas: <span id="vagasOcupadas"></span></p>
         <p>Vagas Disponíveis: <span id="vagasDisponiveis"></span></p>
-        <ul id="listaVagasDisponiveis" class="vagas-disponiveis">
-            
+        <ul id="listaVagasDisponiveis" class="vagas-disponiveis">            
         </ul>
-
         
     <button onclick="voltarParaCadastro()">Voltar para Cadastro</button>
     </div>
@@ -24,11 +22,8 @@
     <script>
         
         var totalVagas = 35;
-
-        
         var vagasCadastradas = JSON.parse(localStorage.getItem('vagasCadastradas')) || [];
 
-        
         function exibirVagas() {
             var listaVagasDisponiveis = document.getElementById('listaVagasDisponiveis');
             listaVagasDisponiveis.innerHTML = '';
@@ -38,7 +33,6 @@
             vagasCadastradas.forEach(function(vaga) {
                 var li = document.createElement('li');
                 li.textContent = `Vaga ${vaga.vaga} - ${vaga.placa}`;
-
                 listaVagasDisponiveis.appendChild(li);
             });
 
