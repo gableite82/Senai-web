@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Vagas Cadastradas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Vagas Cadastradas</h2>
+        <table id="tabelaVagasCadastradas">
+            <thead>
+                <tr>
+                    <th>Proprietario</th>
+                    <th>Apartamento</th>
+                    <th>Bloco</th>
+                    <th>Placa</th>
+                    <th>Modelo</th>
+                    <th>Vaga</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui serão exibidas as vagas cadastradas -->
+            </tbody>
+        </table>
+    <button onclick="voltarParaCadastro()">Voltar para Cadastro</button>
+    </div>
+<!-- Script JavaScript para carregar as vagas cadastradas -->
+    <script>
+        
+        // Recupera os dados das vagas cadastradas armazenados no localStorage
+        var vagasCadastradas = JSON.parse(localStorage.getItem('vagasCadastradas')) || [];
+
+        // Função para exibir as vagas cadastradas na tabela
+        function exibirVagasCadastradas() {
+            var tbody = document.querySelector("#tabelaVagasCadastradas tbody");
+            tbody.innerHTML = ''; // Limpa o conteúdo da tabela antes de adicionar novas linhas
+
+            vagasCadastradas.forEach(function(vaga) {
+                var newRow = tbody.insertRow();
+                newRow.innerHTML = `<td>${vaga.nomeProprietario}</td><td>${vaga.numeroApartamento}</td><td>${vaga.blocoApartamento}</td><td>${vaga.placaVeiculo}</td><td>${vaga.modeloVeiculo}</td><td>${vaga.vagaVeiculo}</td>`;
+        
+            });
+        }
+        function voltarParaCadastro() {
+                window.location.href = "index.html";}
+
+        // Chama a função para exibir as vagas cadastradas ao carregar a página
+        window.onload = function() {
+            exibirVagasCadastradas();
+        };
+
+    </script>
+</body>
+</html>

@@ -1,109 +1,110 @@
 body {
-    margin: 0px;
-    padding: 0px;
     font-family: Arial, sans-serif;
-    background-color: #007bff;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
 }
 
-.formCadatsro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.login-form {
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
     background-color: #fff;
-    padding: 50px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.login-form h2 {
+h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-.input-group {
-    margin-bottom: 15px;
-}
-
-.input-group label {
+label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #666;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 8px;
+input[type="text"] {
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin-bottom: 16px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-.button-group {
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 20px;
+button {
+    padding: 12px;
     width: 100%;
-}
-
-.button-group button {
-    width: 48%;
-    padding: 10px;
-    border: none;
-    border-radius: 3px;
     background-color: #007bff;
     color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 7px;
 }
 
-a {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
+button:hover {
+    background-color: #0056b3;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+/* styles.css */
 
-
-
-.container-cadastro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.cadastro-veiculo {
-    background-color: #fff;
-    padding: 50px;
-    border: 2px solid #ccc;
+.container {
+    max-width: 500px; /* Largura suficiente para acomodar as colunas */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
     border-radius: 5px;
-    width: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.button-register {
-    margin-left: 25%;
-    margin-right: 25%; 
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    width: 100%;
+    flex-wrap: wrap; /* Para quebrar as vagas em várias linhas */
 }
 
-.button-register button {
-    font-size: medium;
-    width: 48%;
+li {
     padding: 10px;
-    border: none;
-    border-radius: 3px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    flex-basis: calc(20% - 20px); /* Definindo a largura de cada vaga para 20% da largura total da lista (5 colunas) */
+    margin: 10px;
+    box-sizing: border-box; /* Para incluir o padding na largura total da vaga */
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+.ocupada {
+    color: red;
+    font-weight: bold;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* Centraliza o conteúdo */
+}
+
+
+form {
+    text-align: left; /* Alinha o texto do formulário à esquerda */
+
+}
+body {
+    background-color: #0056b3;
 }
