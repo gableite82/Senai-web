@@ -14,22 +14,97 @@
     </head>
     <body>
         <div class="container">
-            <form class="login-form">
-                <h2>Página de Autenticação</h2>
-                <div class="input-group">
-                    <label for="username">Usuário:</label>
-                    <input type="text" id="username" name="username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Senha:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="button-group">
-                    <button type="submit" window. location. href ""> Cadastrar </button>
-                    <button type="button" onclick="entrar()"> Entrar </button>
-                </div>
-                <a href="#">Esqueceu a senha?</a>
+            <h2>Reserva de Vagas</h2>
+            
+            <form id="formCadatsro">
+
+                <label for="proprietarioVeiculo">Proprietário do Veículo</label>
+                <input type="text" id="proprietario" name="proprietario" required>
+
+                <label for="numeroApartamento">Número Apartamento</label>
+                <input type="text" id="numeroApartamento" name="numeroApartamento" required>
+
+                <label for="blocoApartamento">Bloco Apartamento</label>
+                <input type="text" id="blocoApartamento" name="blocoApartamento" required>
+
+                <label for="placaVeiculo">Placa do Veículo</label>
+                <input type="text" id="placaVeiculo" name="placaVeiculo" required>
+
+                <label for="modeloVeiculo">Modelo Veículo</label>
+                <input type="text" id="modeloVeiculo" name="modeloVeiculo" required>
+
+                <label for="numeroVaga">Numero da Vaga</label>
+                <input type="text" id="numeroVaga" name="numeroVaga" required>
+
             </form>
+
+            <button onclick="salvarCadastro()">Salvar</button>
+            <button onclick="location.href='vagas_disponiveis'">Vagas Disponíveis</button>            
+            <button onclick="resetarCadastro()">Resetar Cadastros</button>
         </div>
+        <div>
+            <table id="tabelaCadastro"> 
+
+            </table>
+        </div>
+        
+        <script>
+            function salvarCadastro(){
+                var proprietarioVeiculo = document.getElementById('proprietarioVeiculo').value;
+                var numeroApartamento = document.getElementById('numeroApartamento').value;
+                var blocoApartamento = document.getElementById('blocoApartamento').value;
+                var placaVeiculo = document.getElementById('placaVeiculo').value;
+                var modeloVeiculo = document.getElementById('modeloVeiculo').value;
+                var numeroVaga = document.getElementById('numeroVaga').value;
+
+                console.log("Proprietário do Veículo", proprietarioVeiculo);
+                console.log("Número do Apartamento", numeroApartamento);
+                console.log("Bloco do Apartamento", blocoApartamento);
+                console.log("Placa do Veículo", placaVeiculo);
+                console.log("Modelo do Veículo", modeloVeiculo);
+                console.log("Numero da Vaga", numeroVaga);
+
+                var cadastro = {
+                    proprietarioVeiculo: proprietarioVeiculo,
+                    numeroApartamento: numeroApartamento,
+                    blocoApartamento: blocoApartamento,
+                    placaVeiculo: placaVeiculo,
+                    modeloVeiculo: modeloVeiculo,
+                    numeroVaga, numeroVaga
+                }
+
+                var vagasCadastradas = JSON.parse(localStorage.getItem('vagasCadastradas')) || [];
+                vagasCadastradas.push(cadastro);
+
+                localStorage.setItem('vagasCadastradas', JSON.stringify(vagasCadastradas));
+
+                alert("Vagas cadastradas com sucesso!");
+
+                function exibirVagasCadastradas(){
+                    var tbody = document.querySelector("#tabelaVagasCadastradas tbody");
+                    vagasCadastrada.forEach(function(vaga) {
+                        var  newRow = tbody.insertRow();
+                        newRow.innerHTML = `<td>${vaga.proprietarioVeiculo}</td>
+                                            <td>${vaga.numeroApartamento}</td>
+                                            <td>${vaga.blocoApartamento}</td>
+                                            <td>${vaga.placaVeiculo}</td>
+                                            <td>${vaga.modeloVeiculo}</td>
+                                            <td>${vaga.numeroVaga}</td>`;
+
+                        listaVagaDisponiveis.innerHTML = '';                                
+                    });
+                }
+                window.onload = function(){
+                    exibirVagasCadastradas();
+                }
+
+                function resgatarCadastro(){
+                    localStorage.reload();
+                }
+
+                
+            }
+        </script>
+
     </body>
 </html>
