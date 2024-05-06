@@ -10,53 +10,46 @@
 <body>
     <div class="container">
         <h2>Vagas Disponíveis</h2>
-        <p>Total de Vagas: <span id="totalVagas">50</span></p>
+        <p>Total de Vagas: <span id="totalVagas">35</span></p>
         <p>Vagas Ocupadas: <span id="vagasOcupadas"></span></p>
         <p>Vagas Disponíveis: <span id="vagasDisponiveis"></span></p>
         <ul id="listaVagasDisponiveis" class="vagas-disponiveis">
-            <!-- As vagas disponíveis serão exibidas aqui -->
+            
         </ul>
 
-        <!-- Outras vagas -->
+        
     <button onclick="voltarParaCadastro()">Voltar para Cadastro</button>
     </div>
 
     <script>
-        // Total de vagas
-        var totalVagas = 50;
+        
+        var totalVagas = 35;
 
-        // Recupera os dados das vagas cadastradas armazenados no localStorage
+        
         var vagasCadastradas = JSON.parse(localStorage.getItem('vagasCadastradas')) || [];
 
-        // Função para exibir as vagas disponíveis e ocupadas
+        
         function exibirVagas() {
             var listaVagasDisponiveis = document.getElementById('listaVagasDisponiveis');
-
-            // Limpa o conteúdo da lista antes de adicionar novas vagas
             listaVagasDisponiveis.innerHTML = '';
 
-            // Variáveis para contar as vagas ocupadas e disponíveis
             var vagasOcupadas = vagasCadastradas.length;
 
-            // Adiciona as vagas à lista
             vagasCadastradas.forEach(function(vaga) {
                 var li = document.createElement('li');
                 li.textContent = `Vaga ${vaga.vaga} - ${vaga.placa}`;
 
-                // Adiciona à lista de vagas disponíveis
                 listaVagasDisponiveis.appendChild(li);
             });
 
-            // Calcula o número de vagas disponíveis
             var vagasDisponiveis = totalVagas - vagasOcupadas;
 
-            // Atualiza as informações de vagas
             document.getElementById('vagasOcupadas').textContent = vagasOcupadas;
             document.getElementById('vagasDisponiveis').textContent = vagasDisponiveis;
         }
         function voltarParaCadastro() {
             window.location.href = "index.html";}
-        // Chama a função para exibir as vagas ao carregar a página
+       
         window.onload = function() {
             exibirVagas();
         };
